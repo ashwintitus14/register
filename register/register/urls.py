@@ -18,4 +18,7 @@ from django.urls import path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('studreg/', include('studereg.urls'),)
+    path('', RedirectView.as_view(url='/studreg/', permanent=True)), # Redirects root URL to /studreg/
+    static(settings.STATIC_URL, document_root=settings.STATIC_ROOT), #Enabled serving of static files
 ]
