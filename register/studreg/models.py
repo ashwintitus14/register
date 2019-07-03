@@ -61,3 +61,17 @@ class Student(models.Model):
 
     admission_no = models.CharField('Admission Number', max_length=10)
     tc_taken = models.BooleanField('Whether TC taken from GECBH', default=False)
+
+    date_of_admission = models.DateField('Date of admission', auto_now_add=True)
+
+    entrance_roll_no = models.CharField('KEAM Entrance Roll number', max_length=7, primary_key=True)
+    entrance_rank = models.CharField('KEAM State Merit Rank', max_length=10)
+    reservation_rank = models.CharField('Special category/Reservation Rank', max_length=10, blank=True, null=True)
+
+    selection_memo_number = models.CharField('Selection Memo Number', max_length=20) #Check sample
+    selection_memo_date = models.DateField('Selection Memo Date')
+    alloted_college_code = models.CharField('Alloted College Code', max_length=5)
+    alloted_course_code = models.CharField('Alloted Course Code', max_length=5)
+    alloted_branch_code = models.CharField('Alloted Branch Code', max_length=5)
+    reservation_code = models.CharField('Reservation/Special Category Code', max_length=10)
+    
