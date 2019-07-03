@@ -10,7 +10,7 @@ An open source student record management system built using Django.
 
 * [x] Create and register the studreg application.
 * [x] Change time zone.
-* [x] Added paths to urls.py.
+* [x] Add paths to urls.py.
 * [x] Change backend to MySQL from SQLite.
 * [ ] Create data models for student details.
 * [ ] Create form.
