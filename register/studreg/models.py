@@ -50,4 +50,14 @@ class Student(models.Model):
     g_email = models.EmailField("Guardian's Email ID")
     g_relationship = models.CharField("Guardian's relationship with the student. (If 'Other' selected)", blank=True, null=True)
 
-    
+    local_guardian_name = models.CharField('Name of Local Guardian (essential in case of students outside Thiruvananthapuram', max_length=100)
+    local_guardian_address = models.TextField('Address of Local Guardian')
+
+    tc_number = models.CharField('Number of TC produced', max_length=50)
+    tc_date = models.DateField('Date of TC produced')
+    tc_institution = models.CharField('Institution from where TC is issued', max_length=150)
+
+    exam_roll_no = models.CharField('Register number of qualifying exam', max_length=50)
+
+    admission_no = models.CharField('Admission Number', max_length=10)
+    tc_taken = models.BooleanField('Whether TC taken from GECBH', default=False)
