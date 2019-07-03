@@ -15,4 +15,5 @@ An open source student record management system built using Django.
 * [x] Change backend to MySQL from SQLite.
 * [x] Create data models for student details.
 * [x] Register models to admin page.
-* [ ] Create form.
+* [ ] Modify admin page.
+* [ ] Create ModelForm.
