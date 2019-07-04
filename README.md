@@ -18,6 +18,7 @@ An open source student record management system built using Django.
 * [x] Create an index/home page.
 * [ ] Modify admin page.
 * [x] Create ModelForm.
+* [ ] Change dateinput to DateInput widget.
 * [ ] Create form to add admission number.
 * [ ] Add validation functions to form.
 * [ ] Deploy
