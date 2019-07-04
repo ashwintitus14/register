@@ -24,6 +24,7 @@ An open source student record management system built using Django.
 * [ ] Deploy
 
 ## Deployment notes
+(https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04)
 * ssh into machine.
 * sudo apt-get update
 * sudo apt-get upgrade
@@ -81,7 +82,10 @@ An open source student record management system built using Django.
       WSGIDaemonProcess django_app python-path=/home/user/django_project...
       WSGI...
       ```
-    *
+   * sudo a2ensite django_project
+   * sudo a2dissite 000-default.conf
+   * sudo chown :www-data django_project/db
+   * sudo chown :www-data django_project/
       
       
       
