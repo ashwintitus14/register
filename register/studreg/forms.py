@@ -12,4 +12,4 @@ class NewStudentForm(forms.ModelForm):
         
 
         #labels = {'due_back': _('New renewal date')} #To override labels
-        #help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')} #To override help_texts 
+        #help_texts = {'due_back': _('Enter a date between now and 4 weeks (default 3).')} #To override help_texts

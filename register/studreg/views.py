@@ -48,4 +48,4 @@ def new_student(request):
 def register_success(request):
     """View function to show successful registration page."""
     
-    return render(request, 'success.html')
+    return render(request, 'success.html')          
