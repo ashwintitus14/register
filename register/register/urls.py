@@ -23,6 +23,6 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('studreg/', include('studreg.urls'),),
+    path('studreg/', include('studreg.urls'),), # Django sends the remaining URL substring to studreg/urls.py for processing
     path('', RedirectView.as_view(url='/studreg/', permanent=True)), # Redirects root URL to /studreg/ 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) # Enabled serving of static files
