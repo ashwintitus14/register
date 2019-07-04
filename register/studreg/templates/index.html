@@ -1,0 +1,12 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1><em>register</em> - GECBH Student Management System</h1>
+  <p>Welcome to </em>register</em>, a website developed by the <em>Department of Information Technology, GECBH.</em></p>
+  <br><br>
+  <p>The student database has the following record counts:</p>
+  <ul>
+    <li><strong>Students:</strong> {{ num_stud }}</li>
+    <li><strong>Students who took TC from GECBH:</strong> {{ num_stud_took_tc }}</li>
+  </ul>
+{% endblock %}
