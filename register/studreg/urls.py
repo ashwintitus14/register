@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'), # Homepage 
-    
+    path('new/', views.new_student, name='new_student'), # Form to register new student
+    path('success/', views.register_success, name='register_success'),
     
 
 

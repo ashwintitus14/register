@@ -24,3 +24,28 @@ def index(request):
 
     return render(request, 'index.html', context=context) # render expects to find index.html in register/studreg/templates
 
+from .forms import NewStudentForm
+from django.http import HttpResponseRedirect
+from django.urls import reverse
+
+def new_student(request):
+    """View function to register a new student"""
+    if request.method == 'POST':
+        # Create a form and populate it with data from the request (binding):
+        form = NewStudentForm(request.POST)
+        if form.is_valid():
+            form.save()
+
+
+        return HttpResponseRedirect(reverse('register_success'))
+    
+    # If this is a GET (or any other method) create the default form.
+    else:
+        form = NewStudentForm()
+
+    return render(request, 'new.html', {'form': form})
+
+def register_success(request):
+    """View function to show successful registration page."""
+    
+    return render(request, 'success.html')

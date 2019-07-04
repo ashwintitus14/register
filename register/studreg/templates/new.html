@@ -1,0 +1,15 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1><em>register</em> - GECBH Student Management System</h1>
+    <br>
+    <h3>New Student</h3>
+    <form method="POST"> {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    <br><br>
+    
+{% endblock %}
