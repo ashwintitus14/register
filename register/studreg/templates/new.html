@@ -1,14 +1,179 @@
 {% extends "base_generic.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block content %}
-    <h1><em>register</em> - GECBH Student Management System</h1>
     <br>
-    <h3>New Student</h3>
+    <h2>Register a new student</h2>
+    <br>
+    
     <form method="POST"> {% csrf_token %}
-        <table>
-            {{ form.as_table }}
-        </table>
-        <button type="submit" class="save btn btn-default">Save</button>
+        <h4>Student Details</h4>
+        <div class="row">        
+            <div class="col-5">
+                {{ form.name|as_crispy_field }}
+            </div>
+            <div class="col-2">
+                {{ form.gender|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.caste|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.religion|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.community|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.permanent_address|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.present_address|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.phone_1|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.phone_2|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.date_of_birth|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.email|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.concession|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.nationality|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.state|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.district|as_crispy_field }}
+            </div>
+        </div>
+        
+        <br>
+        <h4>Guardian Details</h4>
+        <div class="row">
+            <div class="col-4">
+                {{ form.guardian|as_crispy_field }}
+            </div>
+        </div>        
+        <div class="row">
+            <div class="col-6">
+                {{ form.g_name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.g_relationship|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.g_occupation|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.g_phone|as_crispy_field }}
+            </div>
+            <div class="col-4">
+                {{ form.g_email|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.g_address|as_crispy_field }}
+            </div>
+        </div>
+        
+        <br>
+        <h4>Local Guardian Details (essential in case of students from outside Thiruvananthapuram)</h4>
+        <div class="row">
+            <div class="col-6">
+                {{ form.local_guardian_name|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.local_guardian_address|as_crispy_field }}
+            </div>
+        </div>
+        <br>
+        <h4>Academic Details</h4>
+        <div class="row">
+            <div class="col-6">
+                {{ form.tc_number|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.tc_date|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                {{ form.tc_institution|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.exam_roll_no|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.entrance_roll_no|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.entrance_rank|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.reservation_rank|as_crispy_field }}
+            </div>
+        </div>
+        
+        <br>
+        <h4>Selection Memo Details</h4>
+        <div class="row">
+            <div class="col-4">
+                {{ form.selection_memo_number|as_crispy_field }}
+            </div>    
+            <div class="col-4">
+                {{ form.selection_memo_date|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3">
+                {{ form.alloted_college_code|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.alloted_course_code|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.alloted_branch_code|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.reservation_code|as_crispy_field }}
+            </div>
+        </div>                       
+        <button type="submit" class="save btn btn-primary btn-lg btn-success">Save</button>
     </form>
     <br><br>
     
