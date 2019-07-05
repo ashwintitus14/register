@@ -27,7 +27,7 @@ class Student(models.Model):
     phone_2 = models.CharField('Phone Number 2 (optional)', max_length=20, help_text="Don't use spaces in the phone number.", blank=True, null=True)
     email = models.EmailField('Email ID')
 
-    date_of_birth = models.DateField('Date of Birth (Format: YYYY-MM-DD)')
+    date_of_birth = models.DateField('Date of Birth (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
 
     concession = models.TextField('Nature of Eligibility for fee concession (if applicable)', blank=True, null=True)
 
@@ -59,7 +59,7 @@ class Student(models.Model):
     local_guardian_address = models.TextField('Address of Local Guardian')
 
     tc_number = models.CharField('Serial Number of TC produced', max_length=50)
-    tc_date = models.DateField('Date of TC produced (Format: YYYY-MM-DD)')
+    tc_date = models.DateField('Date of TC produced (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
     tc_institution = models.CharField('Institution from where TC is issued', max_length=150)
 
     exam_roll_no = models.CharField('Register number of qualifying exam', max_length=50)
@@ -67,14 +67,14 @@ class Student(models.Model):
     
     tc_taken = models.BooleanField('Whether TC taken from GECBH', default=False)
 
-    date_of_admission = models.DateField('Date of admission (Format: YYYY-MM-DD)', auto_now_add=True)
+    date_of_admission = models.DateField('Date of admission (Format: YYYY-MM-DD)', auto_now_add=True, help_text="Enter date exactly as shown above.")
 
     entrance_roll_no = models.CharField('KEAM Entrance Roll number', max_length=7, primary_key=True, unique=True)
     entrance_rank = models.CharField('KEAM State Merit Rank', max_length=10)
     reservation_rank = models.CharField('Special category/Reservation Rank (if applicable)', max_length=10, blank=True, null=True)
 
     selection_memo_number = models.CharField('Selection Memo Number', max_length=20) #Check sample
-    selection_memo_date = models.DateField('Selection Memo Date (Format: YYYY-MM-DD)')
+    selection_memo_date = models.DateField('Selection Memo Date (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
     alloted_college_code = models.CharField('Alloted College Code', max_length=5)
     alloted_course_code = models.CharField('Alloted Course Code', max_length=5)
     alloted_branch_code = models.CharField('Alloted Branch Code', max_length=5)
