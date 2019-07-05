@@ -7,6 +7,11 @@ An open source student record management system built using Django.
 * Change db backend to MySQL. (https://www.digitalocean.com/community/tutorials/how-to-create-a-django-app-and-connect-it-to-a-database)
 * Create superuser.
 
+## Files changed
+* settings.py
+* new.html
+* base_generic.html
+
 ## TODO
 
 * [x] Create and register the studreg application.
@@ -22,6 +27,7 @@ An open source student record management system built using Django.
 * [ ] Create form to add admission number.
 * [ ] Add validation functions to form.
 * [ ] Setup backups for MySQL database.
+* [ ] Change bootstrap source from CDN to local.
 * [ ] Deploy
 
 ## Changing form style
