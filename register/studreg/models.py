@@ -8,6 +8,7 @@ class Student(models.Model):
     """Model representing a student."""
 	
     admission_no = models.CharField('Admission Number', max_length=10)
+    tc_taken = models.BooleanField('Whether TC taken from GECBH', default=False)
     name = models.CharField('Name of candidate (in block letters)', max_length=100)
     
     GENDER_CHOICES = (
@@ -17,9 +18,9 @@ class Student(models.Model):
     )
     gender = models.CharField('Gender', max_length=1, choices=GENDER_CHOICES)
 
-    caste = models.CharField('Caste', max_length=50)
-    religion = models.CharField('Religion', max_length=50)
-    community = models.CharField('Community', max_length=50)
+    caste = models.CharField('Caste', max_length=50, blank=True, null=True)
+    religion = models.CharField('Religion', max_length=50, blank=True, null=True)
+    community = models.CharField('Community', max_length=50, blank=True, null=True)
 
     permanent_address = models.TextField('Permanent Address')
     present_address = models.TextField('Present Address', help_text='Copy and paste permanent address if they are the same.')
@@ -65,19 +66,19 @@ class Student(models.Model):
     exam_roll_no = models.CharField('Register number of qualifying exam', max_length=50)
 
     
-    tc_taken = models.BooleanField('Whether TC taken from GECBH', default=False)
+    
 
     date_of_admission = models.DateField('Date of admission (Format: YYYY-MM-DD)', auto_now_add=True, help_text="Enter date exactly as shown above.")
 
-    entrance_roll_no = models.CharField('KEAM Entrance Roll number', max_length=7, primary_key=True, unique=True)
+    entrance_roll_no = models.CharField('KEAM Entrance Roll number', max_length=10, primary_key=True, unique=True)
     entrance_rank = models.CharField('KEAM State Merit Rank', max_length=10)
     reservation_rank = models.CharField('Special category/Reservation Rank (if applicable)', max_length=10, blank=True, null=True)
 
     selection_memo_number = models.CharField('Selection Memo Number', max_length=20) #Check sample
     selection_memo_date = models.DateField('Selection Memo Date (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
-    alloted_college_code = models.CharField('Alloted College Code', max_length=5)
-    alloted_course_code = models.CharField('Alloted Course Code', max_length=5)
-    alloted_branch_code = models.CharField('Alloted Branch Code', max_length=5)
+    alloted_college_code = models.CharField('Alloted College Code', max_length=10)
+    alloted_course_code = models.CharField('Alloted Course Code', max_length=10)
+    alloted_branch_code = models.CharField('Alloted Branch Code', max_length=10)
     reservation_code = models.CharField('Reservation/Special Category Code (if applicable)', max_length=10, blank=True, null=True)
 
     def __str__(self):
