@@ -24,6 +24,9 @@ An open source student record management system built using Django.
 * [ ] Setup backups for MySQL database.
 * [ ] Deploy
 
+## Changing form style
+* https://simpleisbetterthancomplex.com/tutorial/2018/08/13/how-to-use-bootstrap-4-forms-with-django.html
+
 ## Deployment notes
 (https://www.digitalocean.com/community/tutorials/how-to-serve-django-applications-with-apache-and-mod_wsgi-on-ubuntu-16-04)
 * ssh into machine.
