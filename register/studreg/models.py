@@ -86,3 +86,6 @@ class Student(models.Model):
         """Returns the url to access a detailed record for this student."""
         return reverse('student-detail', args=[str(self.entrance_roll_no)]
         )
+    
+    class Meta:
+    	unique_together = ['admission_no', 'entrance_roll_no']
