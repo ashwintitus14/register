@@ -47,7 +47,7 @@ class Student(models.Model):
         ('Other', 'Other'),
     )
     guardian = models.CharField('Guardian', max_length=15, choices=GUARDIAN_CHOICES)
-    g_name = models.CharField("Guardian's name", max_length=15)
+    g_name = models.CharField("Guardian's name", max_length=100)
     g_relationship = models.CharField("Guardian's relationship with the student. (If 'Other' selected)", max_length=20, blank=True, null=True)
     g_occupation = models.CharField("Guardian's Occupation", max_length=50)
     g_address = models.TextField("Guardian's Address")
