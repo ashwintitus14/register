@@ -6,6 +6,7 @@ from django.urls import reverse
 
 class Student(models.Model):
     """Model representing a student."""
+	
     admission_no = models.CharField('Admission Number', max_length=10)
     name = models.CharField('Name of candidate (in block letters)', max_length=100)
     
@@ -46,6 +47,7 @@ class Student(models.Model):
         ('Other', 'Other'),
     )
     guardian = models.CharField('Guardian', max_length=15, choices=GUARDIAN_CHOICES)
+    g_name = models.CharField("Guardian's name", max_length=15)
     g_relationship = models.CharField("Guardian's relationship with the student. (If 'Other' selected)", max_length=20, blank=True, null=True)
     g_occupation = models.CharField("Guardian's Occupation", max_length=50)
     g_address = models.TextField("Guardian's Address")
@@ -53,7 +55,7 @@ class Student(models.Model):
     g_email = models.EmailField("Guardian's Email ID")
     
 
-    local_guardian_name = models.CharField('Name of Local Guardian (essential in case of students outside Thiruvananthapuram)', max_length=100)
+    local_guardian_name = models.CharField('Name of Local Guardian', max_length=100)
     local_guardian_address = models.TextField('Address of Local Guardian')
 
     tc_number = models.CharField('Serial Number of TC produced', max_length=50)
