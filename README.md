@@ -11,6 +11,8 @@ An open source student record management system built using Django.
 * settings.py
 * new.html
 * base_generic.html
+* index.html
+
 
 ## TODO
 
