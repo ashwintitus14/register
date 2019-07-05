@@ -8,7 +8,7 @@ class NewStudentForm(forms.ModelForm):
     class Meta:
         model = Student
         fields = '__all__'
-        exclude = ['admission_no']
+        exclude = ['admission_no', 'tc_taken']
         
 
         #labels = {'due_back': _('New renewal date')} #To override labels

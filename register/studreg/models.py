@@ -28,7 +28,7 @@ class Student(models.Model):
 
     date_of_birth = models.DateField('Date of Birth (Format: 2002-01-04)')
 
-    concession = models.TextField('Nature of Eligibility for fee concession')
+    concession = models.TextField('Nature of Eligibility for fee concession (if applicable)', blank=True, null=True)
 
     nationality = models.CharField('Nationality', max_length=20, default='Indian')
     state = models.CharField('State', max_length=30)
@@ -56,7 +56,7 @@ class Student(models.Model):
     local_guardian_name = models.CharField('Name of Local Guardian (essential in case of students outside Thiruvananthapuram)', max_length=100)
     local_guardian_address = models.TextField('Address of Local Guardian')
 
-    tc_number = models.CharField('Number of TC produced', max_length=50)
+    tc_number = models.CharField('Serial Number of TC produced', max_length=50)
     tc_date = models.DateField('Date of TC produced (Format: 2019-01-04)')
     tc_institution = models.CharField('Institution from where TC is issued', max_length=150)
 
@@ -69,14 +69,14 @@ class Student(models.Model):
 
     entrance_roll_no = models.CharField('KEAM Entrance Roll number', max_length=7, primary_key=True, unique=True)
     entrance_rank = models.CharField('KEAM State Merit Rank', max_length=10)
-    reservation_rank = models.CharField('Special category/Reservation Rank', max_length=10, blank=True, null=True)
+    reservation_rank = models.CharField('Special category/Reservation Rank (if applicable)', max_length=10, blank=True, null=True)
 
     selection_memo_number = models.CharField('Selection Memo Number', max_length=20) #Check sample
     selection_memo_date = models.DateField('Selection Memo Date (Format: 2019-01-04)')
     alloted_college_code = models.CharField('Alloted College Code', max_length=5)
     alloted_course_code = models.CharField('Alloted Course Code', max_length=5)
     alloted_branch_code = models.CharField('Alloted Branch Code', max_length=5)
-    reservation_code = models.CharField('Reservation/Special Category Code', max_length=10)
+    reservation_code = models.CharField('Reservation/Special Category Code (if applicable)', max_length=10, blank=True, null=True)
 
     def __str__(self):
         """String represeting the Student object."""
