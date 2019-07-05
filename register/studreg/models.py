@@ -6,7 +6,7 @@ from django.urls import reverse
 
 class Student(models.Model):
     """Model representing a student."""
-
+    admission_no = models.CharField('Admission Number', max_length=10)
     name = models.CharField('Name of candidate (in block letters)', max_length=100)
     
     GENDER_CHOICES = (
@@ -62,7 +62,7 @@ class Student(models.Model):
 
     exam_roll_no = models.CharField('Register number of qualifying exam', max_length=50)
 
-    admission_no = models.CharField('Admission Number', max_length=10)
+    
     tc_taken = models.BooleanField('Whether TC taken from GECBH', default=False)
 
     date_of_admission = models.DateField('Date of admission (Format: 2019-01-04)', auto_now_add=True)
