@@ -3,9 +3,24 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
+    <script type="text/javascript">
+        function CopyAddress(f) {
+            if(f.sameaddress.checked == true) {
+                f.present_address.value = f.permanent_address.value;
+            }
+        }
+
+        function CopyGuardian(f) {
+            if(f.sameguardian.checked == true) {
+                f.local_guardian_name.value = f.g_name.value;
+                f.local_guardian_address.value = f.g_address.value;
+            }
+        }
+    </script>    
+
     <br>
     <h2>Register a new student</h2>
-    <h6>Fields with a '*' are required fields.</h6>
+    <h6>Fields with a <strong>*</strong> are required fields.</h6>
     <br>
     
     <form method="POST"> {% csrf_token %}
@@ -37,6 +52,11 @@
                 {{ form.present_address|as_crispy_field }}
             </div>
         </div>
+
+        <input type="checkbox" name="sameaddress" onclick="CopyAddress(this.form)">
+        <em>Check this box if permanent address and present address are the same.</em>
+        <br><br>
+
         <div class="row">
             <div class="col-4">
                 {{ form.phone_1|as_crispy_field }}
@@ -104,6 +124,9 @@
         
         <br>
         <h4>Local Guardian Details (essential in case of students from outside Thiruvananthapuram)</h4>
+        <input type="checkbox" name="sameguardian" onclick="CopyGuardian(this.form)">
+        <em>Check this box if Local Guardian and above mentioned Guardian are the same.</em>
+        <br><br>
         <div class="row">
             <div class="col-6">
                 {{ form.local_guardian_name|as_crispy_field }}

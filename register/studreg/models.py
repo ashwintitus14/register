@@ -23,7 +23,7 @@ class Student(models.Model):
     community = models.CharField('Community', max_length=50, blank=True, null=True)
 
     permanent_address = models.TextField('Permanent Address')
-    present_address = models.TextField('Present Address', help_text='Copy and paste permanent address if they are the same.')
+    present_address = models.TextField('Present Address')
     phone_1 = models.CharField('Phone Number 1', max_length=20, help_text="Don't use spaces in the phone number.")
     phone_2 = models.CharField('Phone Number 2 (optional)', max_length=20, help_text="Don't use spaces in the phone number.", blank=True, null=True)
     email = models.EmailField('Email ID')
@@ -39,7 +39,7 @@ class Student(models.Model):
     concession = models.CharField('Nature of Eligibility for fee concession', max_length=20, choices=CONCESSION_CHOICES, default='No eligibility')
 
     nationality = models.CharField('Nationality', max_length=20, default='Indian')
-    state = models.CharField('State', max_length=30, default='Kerala')
+    state = models.CharField('State', max_length=50, default='Kerala')
     district = models.CharField('District', max_length=50)
 
     GUARDIAN_CHOICES = (
