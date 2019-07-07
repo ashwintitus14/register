@@ -30,10 +30,16 @@ class Student(models.Model):
 
     date_of_birth = models.DateField('Date of Birth (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
 
-    concession = models.TextField('Nature of Eligibility for fee concession (if applicable)', blank=True, null=True)
+    CONCESSION_CHOICES = (
+        ('No eligibility', 'No eligibility'),
+        ('SC', 'SC'),
+        ('ST', 'ST'),
+        ('OEC', 'OEC'),
+    )
+    concession = models.CharField('Nature of Eligibility for fee concession', max_length=20, choices=CONCESSION_CHOICES, default='No eligibility')
 
     nationality = models.CharField('Nationality', max_length=20, default='Indian')
-    state = models.CharField('State', max_length=30)
+    state = models.CharField('State', max_length=30, default='Kerala')
     district = models.CharField('District', max_length=50)
 
     GUARDIAN_CHOICES = (
@@ -76,10 +82,33 @@ class Student(models.Model):
 
     selection_memo_number = models.CharField('Selection Memo Number', max_length=20) #Check sample
     selection_memo_date = models.DateField('Selection Memo Date (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
-    alloted_college_code = models.CharField('Alloted College Code', max_length=10)
-    alloted_course_code = models.CharField('Alloted Course Code', max_length=10)
-    alloted_branch_code = models.CharField('Alloted Branch Code', max_length=10)
+    alloted_college_code = models.CharField('Alloted College Code', max_length=10, default='TRV')
+    COURSE_CHOICES = (
+        ('BTech', 'BTech'),
+        ('MTech', 'MTech'),
+        ('PhD', 'PhD'),
+    )
+    alloted_course_code = models.CharField('Alloted Course Code', max_length=10, choices=COURSE_CHOICES, default='BTech')
+    BRANCH_CHOICES = (
+        ('CE', 'CE'),
+        ('ECE', 'ECE'),
+        ('EEE', 'EEE'),
+        ('IT', 'IT'),
+        ('ME', 'ME'),
+    )
+    alloted_branch_code = models.CharField('Alloted Branch Code', max_length=10, choices=BRANCH_CHOICES)
     reservation_code = models.CharField('Reservation/Special Category Code (if applicable)', max_length=10, blank=True, null=True)
+
+    # Documents submitted
+    tc_submitted = models.BooleanField('Transfer Certificate', default=False)
+    marklist_submitted = models.BooleanField('Marklist', default=False)
+    community_submitted = models.BooleanField('Community Certificate', default=False)
+    migration_submitted = models.BooleanField('Migration Certificate (ICSE/CBSE/Diploma)', default=False)
+
+    # Fee details
+    fee_concession = models.BooleanField('Fee Concession', default=False, help_text="Tick if eligible")
+    amount = models.CharField('Amount (Rs)', max_length=20, default=0)
+    bank_receipt_no = models.CharField('Bank Receipt No.', max_length=50, null=True, blank=True)
 
     def __str__(self):
         """String represeting the Student object."""

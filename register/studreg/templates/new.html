@@ -5,6 +5,7 @@
 {% block content %}
     <br>
     <h2>Register a new student</h2>
+    <h6>Fields with a '*' are required fields.</h6>
     <br>
     
     <form method="POST"> {% csrf_token %}
@@ -172,9 +173,64 @@
             <div class="col-6">
                 {{ form.reservation_code|as_crispy_field }}
             </div>
-        </div>                       
+        </div>
+        
+        <br>
+        <h4>Documents submitted</h4>
+        <div class="row">
+            <div class="col-4">
+                {{ form.tc_submitted|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+                <div class="col-4">
+                    {{ form.marklist_submitted|as_crispy_field }}
+                </div>
+            </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.community_submitted|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.migration_submitted|as_crispy_field }}
+            </div>
+        </div>
+        
+        <br>
+        <h4>Details of fee remitted</h4>
+        <div class="row">
+            <div class="col-4">
+                {{ form.fee_concession|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                {{ form.amount|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.bank_receipt_no|as_crispy_field}}
+            </div>
+        </div>
+        
         <button type="submit" class="save btn btn-primary btn-lg btn-success">Save</button>
     </form>
     <br><br>
     
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
