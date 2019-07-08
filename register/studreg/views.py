@@ -35,10 +35,10 @@ def new_student(request):
         form = NewStudentForm(request.POST)
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect(reverse('register_success'))
+        else:
+            return render(request, 'new.html', {'form': form})
 
-
-        return HttpResponseRedirect(reverse('register_success'))
-    
     # If this is a GET (or any other method) create the default form.
     else:
         form = NewStudentForm()

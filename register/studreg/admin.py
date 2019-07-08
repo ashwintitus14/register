@@ -10,7 +10,7 @@ class StudentAdmin(admin.ModelAdmin):
     
     list_display = ('entrance_roll_no', 'admission_no', 'name', 'tc_taken')
     # list_filter = ('tc_taken',) # Enable to add a filter to the admin page 
-    search_fields = ['entrance_roll_no',]  # Adds a search box to the admin page
+    search_fields = ['entrance_roll_no', 'admission_no']  # Adds a search box to the admin page
     save_on_top = True
 
 admin.site.register(Student, StudentAdmin)

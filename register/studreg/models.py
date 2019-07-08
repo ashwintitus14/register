@@ -110,6 +110,8 @@ class Student(models.Model):
     amount = models.CharField('Amount (Rs)', max_length=20, default=0)
     bank_receipt_no = models.CharField('Bank Receipt No.', max_length=50, null=True, blank=True)
 
+    time_stamp = models.DateTimeField('Timestamp', auto_now_add = True)
+
     def __str__(self):
         """String represeting the Student object."""
         return self.entrance_roll_no
