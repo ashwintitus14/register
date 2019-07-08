@@ -24,8 +24,8 @@ class Student(models.Model):
 
     permanent_address = models.TextField('Permanent Address')
     present_address = models.TextField('Present Address')
-    phone_1 = models.CharField('Phone Number 1', max_length=20, help_text="Don't use spaces in the phone number.")
-    phone_2 = models.CharField('Phone Number 2 (optional)', max_length=20, help_text="Don't use spaces in the phone number.", blank=True, null=True)
+    phone_1 = models.CharField('Phone Number 1', max_length=25, help_text="Don't use spaces in the phone number.")
+    phone_2 = models.CharField('Phone Number 2 (optional)', max_length=25, help_text="Don't use spaces in the phone number.", blank=True, null=True)
     email = models.EmailField('Email ID')
 
     date_of_birth = models.DateField('Date of Birth (Format: YYYY-MM-DD)', help_text="Enter date exactly as shown above.")
@@ -39,8 +39,8 @@ class Student(models.Model):
     concession = models.CharField('Nature of Eligibility for fee concession', max_length=20, choices=CONCESSION_CHOICES, default='No eligibility')
 
     nationality = models.CharField('Nationality', max_length=20, default='Indian')
-    state = models.CharField('State', max_length=50, default='Kerala')
-    district = models.CharField('District', max_length=50)
+    state = models.CharField('State', max_length=100, default='Kerala')
+    district = models.CharField('District', max_length=100)
 
     GUARDIAN_CHOICES = (
         ('Father', 'Father'),
@@ -55,10 +55,10 @@ class Student(models.Model):
     )
     guardian = models.CharField('Guardian', max_length=15, choices=GUARDIAN_CHOICES)
     g_name = models.CharField("Guardian's name", max_length=100)
-    g_relationship = models.CharField("Guardian's relationship with the student. (If 'Other' selected)", max_length=20, blank=True, null=True)
+    g_relationship = models.CharField("Guardian's relationship with the student. (If 'Other' selected)", max_length=50, blank=True, null=True)
     g_occupation = models.CharField("Guardian's Occupation", max_length=50)
     g_address = models.TextField("Guardian's Address")
-    g_phone = models.CharField("Guardian's Phone Number", max_length=20, help_text="Don't use spaces in the phone number.")
+    g_phone = models.CharField("Guardian's Phone Number", max_length=25, help_text="Don't use spaces in the phone number.")
     g_email = models.EmailField("Guardian's Email ID")
     
 
